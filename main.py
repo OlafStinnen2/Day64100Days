@@ -1,25 +1,33 @@
-class animal:
-  species = None
+class bankaccount:
+  customer_id = None
   name = None
-  sound = None
- 
-  def __init__(self, name, species, sound, color): # Include the 'self' in the 'init'
+  value = None
+
+  def __init__(self, customer_id, name, value):
+    self.customer_id = customer_id
     self.name = name
-    self.species = species
-    self.sound = sound
-    self.color = color
-
-class bird(animal):
-
- def __init__(self):
-    self.name = "Bird"
-    self.species = "Avian"
-    self.sound = "Tweet"
-    self.color = "green"
+    self.value = value
 
 
-cow = animal("Ermintrude", "Bo Taurus", "Moo", "black")
-print(cow.sound)
+  def transfer(self, amount):
+    if amount >= 0:
+      print(self.value)
+      self.value += amount
+    else:
+      if self.value < abs(amount):
+        print("To little money on bank account")
+      else:
+        self.value += amount
+        
+
+        
+
+
+
+Olaf_Start = bankaccount("Olaf100", "Olaf Stinnen",100.01)
+Olaf_Start.value += 100
+Olaf_Start.transfer(-300)
+print(Olaf_Start.value)
 
 
 
